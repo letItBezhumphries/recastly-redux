@@ -44,6 +44,7 @@ describe('Action dispatchers', function() {
       expect(changeVideoList.firstCall.returnValue.type).to.equal('CHANGE_VIDEO_LIST');
     });
     it('should return an object with a "videos" key equal to the videos parameter', function() {
+      console.log(changeVideoList);
       expect(changeVideoList.firstCall.returnValue.videos).to.equal(dummyData);
     });
   });
