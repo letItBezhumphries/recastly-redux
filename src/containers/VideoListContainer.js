@@ -1,18 +1,20 @@
 import { connect } from 'react-redux';
 import VideoList from './../components/VideoList.js';
 import changeVideo from './../actions/currentVideo.js';
+import changeVideoList from '../actions/videoList.js';
 
 
 
 const mapStateToProps = (state) => ({
-  videos: state.videoList
+  videos: state.videoList,
+  video: state.currentVideo
 });
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleVideoListEntryTitleClick: () => {
-      dispatch(changeVideo);
+    handleVideoListEntryTitleClick: (video) => {
+      dispatch(changeVideo(video));
     }
   };
 };

@@ -1,20 +1,24 @@
 import React from 'react';
 import Search from './../components/Search.js';
 import { connect } from 'react-redux';
-import handleSearchChange from '../actions/search.js';
+// import handleSearchChange from '../actions/search.js';
 import handleVideoSearch from '../actions/search.js';
+import changeVideo from '../actions/currentVideo.js';
 
 const mapStateToProps = (state) => {
+  
   return {
-    
+    videos: state.videoList, 
+    video: state.currentVideo
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, query) => {
   return {
-    handleSearchInputChange: () => {
-      dispatch(handleVideoSearch);
+    handleSearchInputChange: (query) => {
+      dispatch(handleVideoSearch(query));   
     }
+  
   };
 };
 

@@ -3,7 +3,7 @@ import changeVideoList from './videoList.js';
 import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
-// const url = `https://www.googleapis.com/youtube/v3/search${YOUTUBE_API_KEY}`;
+// const url = `https://www.googleapis.com/youtube/v3/search?${YOUTUBE_API_KEY}`;
 
 export const videosFetchSuccess = (videos) => {
   return {
@@ -29,7 +29,12 @@ export const videosFetchLoading = (boolean) => {
 var handleVideoSearch = (q) => {
   //TODO:  Write an asynchronous action to handle a video search!
   return function(dispatch, getState) {
-    searchYouTube({YOUTUBE_API_KEY, q}, (items) => { dispatch(changeVideo(items[0]), changeVideoList(items)); }, 200);    
+    searchYouTube({key: YOUTUBE_API_KEY, query: q}, (items) => { dispatch(changeVideo(items[0]), dispatch(changeVideoList(items))); });    
+    // searchYouTube({key: YOUTUBE_API_KEY, query: q}).then(
+    //   videos => dispatch(changeVideo(videos[0]), 
+    //     dispatch(changeVideoList(videos)), 
+    //     err => dispatch(videosFetchFailure(err)))
+    // ); 
   };
 };
 
