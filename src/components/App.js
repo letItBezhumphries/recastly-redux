@@ -22,8 +22,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    store.dispatch(handleVideoSearch('radiant children'));
-
+    store.dispatch(handleVideoSearch(query), changeVideo(currentVideo), changeVideoList(videoList));
 
   }
 
