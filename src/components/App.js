@@ -22,10 +22,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    store.dispatch(handleVideoSearch(query), changeVideo(currentVideo), changeVideoList(videos)
-    );
-  }
-
+    store.dispatch(handleVideoSearch('radiant children'));
   handleVideoListEntryTitleClick(video) {
     this.setState({currentVideo: video});
   }
