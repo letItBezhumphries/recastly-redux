@@ -5,8 +5,6 @@ var videoListReducer = (state = [], action) => {
   switch (action.type) {
   case 'CHANGE_VIDEO_LIST': 
     return action.videos;
-  // case 'CHANGE_VIDEO':
-  //   return action.video;
   default:
     return state;
   }

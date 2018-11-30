@@ -6,7 +6,6 @@ import handleVideoSearch from '../actions/search.js';
 import changeVideo from '../actions/currentVideo.js';
 
 const mapStateToProps = (state) => {
-  
   return {
     videos: state.videoList, 
     video: state.currentVideo

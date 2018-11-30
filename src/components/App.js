@@ -22,8 +22,8 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    store.dispatch(handleVideoSearch(query), changeVideo(currentVideo), changeVideoList(videoList));
-
+    store.dispatch(handleVideoSearch(query), changeVideo(currentVideo), changeVideoList(videos)
+    );
   }
 
   handleVideoListEntryTitleClick(video) {

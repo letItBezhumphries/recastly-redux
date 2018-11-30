@@ -3,7 +3,7 @@ import changeVideoList from './videoList.js';
 import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
-// const url = `https://www.googleapis.com/youtube/v3/search?${YOUTUBE_API_KEY}`;
+// const ROOT_URL = `https://www.googleapis.com/youtube/v3/search?${YOUTUBE_API_KEY}`;
 
 export const videosFetchSuccess = (videos) => {
   return {

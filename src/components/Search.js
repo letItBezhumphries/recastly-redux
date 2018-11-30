@@ -16,6 +16,16 @@ class Search extends React.Component {
     });
   }
 
+  /*
+  onFormSubmit(e) {
+    e.preventDefault();
+    //fetch the videos here
+    this.props.searchYouTubeVideos(this.state.value);
+    //clear the e.target.value
+    this.setState({value: ''})
+  }
+  */
+
   render() {
     return (
       <div className="search-bar form-inline">
