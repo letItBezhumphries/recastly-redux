@@ -22,7 +22,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    store.dispatch(handleVideoSearch('radiant children'));
+    store.dispatch(handleVideoSearch(''));
   }
 
   handleVideoListEntryTitleClick(video) {
@@ -30,6 +30,7 @@ export default class App extends React.Component {
   }
 
   getYouTubeVideos(query) {
+
     var options = {
       key: this.props.API_KEY,
       query: query

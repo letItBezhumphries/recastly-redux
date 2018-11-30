@@ -3,59 +3,47 @@ import changeVideoList from './videoList.js';
 import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
-// const ROOT_URL = `https://www.googleapis.com/youtube/v3/search?${YOUTUBE_API_KEY}`;
+const SEARCH_YOUTUBE_VIDEOS = 'SEARCH_YOUTUBE_VIDEOS';
 
-export const videosFetchSuccess = (videos) => {
+export const searchYoutubeVideos = (videos) => {
   return {
-    type: 'GET_YOUTUBE_VIDEOS',
+    type: SEARCH_YOUTUBE_VIDEOS,
     videos
   };
 };
 
+const VIDEOS_FETCH_SUCCESS = 'VIDEOS_FETCH_SUCCESS';
+
+export const videosFetchSuccess = (boolean) => {
+  return {
+    type: VIDEOS_FETCH_SUCCESS,
+    videos
+  };
+};
+
+
+const VIDEOS_FETCH_ERROR = 'VIDEOS_FETCH_ERROR';
+
 export const videosFetchFailure = (err) => {
   return {
-    type: 'VIDEOS_FETCH_FAILURE',
+    type: VIDEOS_FETCH_ERROR,
     err,
   };
 };
 
-export const videosFetchLoading = (boolean) => {
+const VIDEOS_LOADING = 'VIDEOS_LOADING';
+
+export const videosLoading = (boolean) => {
   return {
-    type: 'VIDEOS_IS_LOADING',
+    type: VIDEOS_LOADING,
     boolean
   };
 };
 
 var handleVideoSearch = (q) => {
-  //TODO:  Write an asynchronous action to handle a video search!
-  return function(dispatch, getState) {
-    searchYouTube({key: YOUTUBE_API_KEY, query: q}, (items) => { dispatch(changeVideo(items[0]), dispatch(changeVideoList(items))); });    
-    // searchYouTube({key: YOUTUBE_API_KEY, query: q}).then(
-    //   videos => dispatch(changeVideo(videos[0]), 
-    //     dispatch(changeVideoList(videos)), 
-    //     err => dispatch(videosFetchFailure(err)))
-    // ); 
+  return function(dispatch) {
+    searchYouTube({key: YOUTUBE_API_KEY, query: q}, (items) => { dispatch(changeVideo(items[0]), dispatch(changeVideoList(items))); });     
   };
 };
-
-
-
-
-
-// searchYouTube({YOUTUBE_API_KEY, q}, (items) => { 
-//   dispatch(
-//     { type: GET_YOUTUBE_VIDEOS, payload: items },
-//     { type: VIDEOS_FETCH_ERROR, payload: err },
-//     { type: VIDEOS_LOADING, payload: boolean } 
-//   );
-// }, 200); 
-// return searchYouTube({YOUTUBE_API_KEY, q}).then(
-//   videos => dispatch(changeVideo(videos[0]), 
-//     dispatch(changeVideoList(vidoes)), 
-//     err => dispatch(videosFetchFailure(err)))
-// );  
-
-
-
 
 export default handleVideoSearch;

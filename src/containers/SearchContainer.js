@@ -1,7 +1,6 @@
 import React from 'react';
 import Search from './../components/Search.js';
 import { connect } from 'react-redux';
-// import handleSearchChange from '../actions/search.js';
 import handleVideoSearch from '../actions/search.js';
 import changeVideo from '../actions/currentVideo.js';
 
@@ -12,17 +11,13 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, query) => {
-  return {
+const mapDispatchToProps = (dispatch) => {
+  return { 
     handleSearchInputChange: (query) => {
       dispatch(handleVideoSearch(query));   
-    }
-  
+    }  
   };
 };
-
-
-
 
 var SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search);
 
